@@ -16,7 +16,7 @@
 */
 
 namespace {
-#define TO_LAMBDA(FUNC) [&]() { FUNC(); }
+#define LAMBDAFY_CLIENT_PACKET_HANDLER(FUNC) [&]() { FUNC(); }
 }
 
 class DebugInputHandler {
@@ -32,14 +32,10 @@ private:
 	DebugInputHandler() {
 		proxySession = make_shared<Proxy>(SERVER_TYPE::AGENT, ioContext);
 		clientSession1 = make_shared<ClientSession>(ioContext);
-		sptr<Player> player1 = make_shared<Player>();
-		player1->SetPlayerId(1);
-		clientSession1->SetPlayer(player1);
+		sptr<Player> player1 = make_shared<Player>(1);
 
 		clientSession2 = make_shared<ClientSession>(ioContext);
-		sptr<Player> player2 = make_shared<Player>();
-		player2->SetPlayerId(2);
-		clientSession2->SetPlayer(player2);
+		sptr<Player> player2 = make_shared<Player>(2);
 	}
 
 private:
@@ -49,13 +45,13 @@ private:
 
 public:
 	DebugInputHandler(sptr<GameSystem> paramGameSystem) : gameSystem(paramGameSystem) {
-		handlers.emplace(1, TO_LAMBDA(HandleHostCreate));
-		handlers.emplace(2, TO_LAMBDA(HandleEnterClient));
+		handlers.emplace(1, LAMBDAFY_CLIENT_PACKET_HANDLER(HandleHostCreate));
+		handlers.emplace(2, LAMBDAFY_CLIENT_PACKET_HANDLER(HandleEnterPlayer));
 	}
 
 	void PrintInstruction() {
 		cout << "[1] HostCreate" << endl;
-		cout << "[2] EnterClient" << endl;
+		cout << "[2] EnterPlayer" << endl;
 		cout << "[3] ShowShopData" << endl;
 		cout << "[4] BuyChamp" << endl;
 		cout << "[5] ChampLocateToField" << endl;
@@ -86,7 +82,7 @@ public:
 		gameSystem->PushCommand(command);
 	}
 
-	void HandleEnterClient() {
+	void HandleEnterPlayer() {
 
 		sptr<GameHost> host = gameSystem->GetGameHostByPlayerId(1);
 
@@ -95,8 +91,8 @@ public:
 			return;
 		}
 
-		host->EnterClient(clientSession1);
-		host->EnterClient(clientSession2);
-	}
+		//host->EnterPlayer(clientSession1);
+		//host->EnterPlayer(clientSession2);
 
-};
+	};
+}

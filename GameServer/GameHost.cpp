@@ -8,7 +8,7 @@ using namespace Command;
 
 namespace
 {
-#define TO_LAMBDA(FUNC) [&](sptr<ICommand> command) { FUNC(command); }
+#define LAMBDAFY_CLIENT_PACKET_HANDLER(FUNC) [&](sptr<ICommand> command) { FUNC(command); }
 #define SET_CURRENT_STATE_TO_LAMBDA(FUNC) [&](sptr<IGameState> newState) { FUNC(newState); }
 } // namespace
 
@@ -19,9 +19,9 @@ GameHost::GameHost(sptr<ChampDataFactory> paramChampDataFactory, int paramMatchI
 
 void GameHost::Start() { currentState = make_shared<GameStartedState>(); }
 
-bool GameHost::EnterClient(sptr<ClientSession> client)
+bool GameHost::EnterPlayer(sptr<Player> player)
 {
-	int playerId = client->GetPlayer()->GetPlayerId();
+	int playerId = player->GetPlayerId();
 
 	bool playerIdExist = false;
 	for (int i : vecPlayerId)
@@ -37,10 +37,7 @@ bool GameHost::EnterClient(sptr<ClientSession> client)
 		return false;
 	}
 
-	sptr<InGamePlayer> inGamePlayer = make_shared<InGamePlayer>();
-	inGamePlayer->SetPlayerId(playerId);
-	inGamePlayer->SetClientSession(client);
-	mapInGamePlayer.emplace(playerId, inGamePlayer);
+	mapPlayer.emplace(playerId, player);
 }
 
 void GameHost::PushCommand(sptr<ICommand> command)

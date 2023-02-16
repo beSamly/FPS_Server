@@ -8,12 +8,12 @@ using namespace Command;
 using namespace Command::N2G;
 namespace
 {
-#define TO_LAMBDA(FUNC) [&](GameHost& host, sptr<ICommand> command) { FUNC(host, command); }
+#define LAMBDAFY_COMMAND_HANDLER(FUNC) [&](GameHost& host, sptr<ICommand> command) { FUNC(host, command); }
 } // namespace
 
 GameHostCommandHandler::GameHostCommandHandler()
 {
-	commandHandler.emplace((int)N2G::CommandId::CREATE_HOST, TO_LAMBDA(HandleHostCreateCommand));
+	commandHandler.emplace((int)N2G::CommandId::CREATE_HOST, LAMBDAFY_COMMAND_HANDLER(HandleHostCreateCommand));
 }
 
 void GameHostCommandHandler::ProcessCommand(GameHost& host, sptr<ICommand> command)

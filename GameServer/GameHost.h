@@ -2,7 +2,7 @@
 #include "pch.h"
 #include "Command.h"
 #include "ChampDataFactory.h"
-#include "InGamePlayer.h"
+#include "Player.h"
 #include "IGameState.h"
 #include "GameHostCommandHandler.h"
 
@@ -23,24 +23,23 @@ private:
 	sptr<IGameState> currentState = nullptr;
 	queue<sptr<ICommand>> commandQueue;
 	GameHostCommandHandler gameHostCommandHandler;
-	map<int, vector<ChampData>> champPool; //map<cost, vector<ChampData>
 
 	/* Data */
 	sptr<ChampDataFactory> champDataFactory;
 
 public:
-	map<int, sptr<InGamePlayer>> mapInGamePlayer;
+	map<int, sptr<Player>> mapPlayer;
 
 public:
-	map<int, sptr<InGamePlayer>>& GetInGamePlayer() { return mapInGamePlayer; }
+	map<int, sptr<Player>>& GetPlayer() { return mapPlayer; }
 	sptr<ChampDataFactory> GetChampDataFactory() { return champDataFactory; }
-	sptr <InGamePlayer> FindInGamePlayer(int playerId) { return mapInGamePlayer.count(playerId) ? mapInGamePlayer[playerId] : nullptr; }
+	sptr <Player> FindPlayer(int playerId) { return mapPlayer.count(playerId) ? mapPlayer[playerId] : nullptr; }
 	void SetCurrentState(sptr<IGameState> state) { currentState = state; }
 
 public:
 	GameHost(sptr<ChampDataFactory> p_champDataFactory, int matchId, vector<int> paramVecPlayerId);
 	void Start();
-	bool EnterClient(sptr<ClientSession> client);
+	bool EnterPlayer(sptr<Player> client);
 	void PushCommand(sptr<ICommand> command);
 	void Update(float deltaTime);
 

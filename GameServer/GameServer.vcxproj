@@ -150,7 +150,6 @@
     <ClInclude Include="HostController.h" />
     <ClInclude Include="IController.h" />
     <ClInclude Include="IGameState.h" />
-    <ClInclude Include="InGamePlayer.h" />
     <ClInclude Include="IOperation.h" />
     <ClInclude Include="IPacketController.h" />
     <ClInclude Include="LibraryHeader.h" />
@@ -190,7 +189,6 @@
     <ClCompile Include="HostController.cpp" />
     <ClCompile Include="IController.cpp" />
     <ClCompile Include="IGameState.cpp" />
-    <ClCompile Include="InGamePlayer.cpp" />
     <ClCompile Include="IOperation.cpp" />
     <ClCompile Include="IPacketController.cpp" />
     <ClCompile Include="main.cpp" />

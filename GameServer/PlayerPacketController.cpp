@@ -8,10 +8,11 @@
 #include "PacketId_MT_GM.h"
 #include "PacketId_CL_GM.h"
 #include "GameController.h"
+#include "DebugController.h"
 
 PlayerPacketController::PlayerPacketController(sptr<GameSystem> gameSystem)
 {
-	IPacketController::AddController((int)PacketId_CL_GM::Prefix::DEBUG, make_shared<GameController>(gameSystem));
+	IPacketController::AddController((int)PacketId_CL_GM::Prefix::DEBUG, make_shared<DebugController>(gameSystem));
 	IPacketController::AddController((int)PacketId_CL_GM::Prefix::GAME, make_shared<GameController>(gameSystem));
 }
 

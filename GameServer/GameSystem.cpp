@@ -13,14 +13,14 @@ DWORD intervalTick = 1000; // 3초에 한 번씩
 
 namespace
 {
-#define TO_LAMBDA(FUNC) [&](sptr<ICommand> command) { FUNC(command); }
+#define LAMBDAFY_CLIENT_PACKET_HANDLER(FUNC) [&](sptr<ICommand> command) { FUNC(command); }
 } // namespace
 
 using namespace Command::N2G;
 
 GameSystem::GameSystem(sptr<DataSystem> p_dataSystem) : dataSystem(p_dataSystem)
 {
-	commandHandler.emplace((int)N2G::CommandId::CREATE_HOST, TO_LAMBDA(HandleHostCreate));
+	commandHandler.emplace((int)N2G::CommandId::CREATE_HOST, LAMBDAFY_CLIENT_PACKET_HANDLER(HandleHostCreate));
 }
 
 void GameSystem::Run()

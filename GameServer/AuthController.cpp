@@ -14,12 +14,13 @@
 #include "ProxyLoginReq.pb.h"
 #include "PlayerInfo.pb.h"
 #include "GameSystem.h"
+#include "Player.h"
 
 AuthController::AuthController(sptr<GameSystem> paramGameSystem, sptr<TempClientManager> paramTempClientManager, sptr<ProxyManager> paramProxyManager)
 	: gameSystem(paramGameSystem), tempClientManager(paramTempClientManager), proxyManager(paramProxyManager)
 {
-	AddClientHandler((int)PacketId_Common::Auth::PROXY_LOGIN_REQ, TO_LAMBDA(HandleProxyLoginRequest));
-	AddClientHandler((int)PacketId_Common::Auth::CLIENT_GAME_SERVER_LOGIN_REQ, TO_LAMBDA(HandleLoginRequest));
+	AddClientHandler((int)PacketId_Common::Auth::PROXY_LOGIN_REQ, LAMBDAFY_CLIENT_PACKET_HANDLER(HandleProxyLoginRequest));
+	AddClientHandler((int)PacketId_Common::Auth::CLIENT_GAME_SERVER_LOGIN_REQ, LAMBDAFY_CLIENT_PACKET_HANDLER(HandleLoginRequest));
 }
 
 void AuthController::HandleLoginRequest(sptr<ClientSession>& session, BYTE* buffer, int32 len)
@@ -31,9 +32,8 @@ void AuthController::HandleLoginRequest(sptr<ClientSession>& session, BYTE* buff
 	// TODO 요청을 보내온 클라이언트가 실제 playerId에 해당하는 유저인지 검증
 	int playerId = pkt.playerid();
 
-	sptr<Player> player = make_shared<Player>();
-	player->SetPlayerId(playerId);
-	session->SetPlayer(player);
+	sptr<Player> player = make_shared<Player>(playerId);
+	player->SetClientSession(session);
 	session->isAuthenticated = true;
 
 	// 해당 플레이어가 현재 매칭이 잡힌 유저인지 체크
@@ -41,8 +41,7 @@ void AuthController::HandleLoginRequest(sptr<ClientSession>& session, BYTE* buff
 	{
 		// TODO 나중에 지워라 래퍼런스로 받은 shared_ptr을 다른 함수에서 논 레퍼런스로 받으면 카운트 증가되나?
 		int refCountBefore = session.use_count();
-		player->SetCurrentGameHost(gameHost);
-		bool result = gameHost->EnterClient(session);
+		bool result = gameHost->EnterPlayer(player);
 		if (!result)
 		{
 

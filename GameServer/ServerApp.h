@@ -6,7 +6,6 @@
 #include "PlayerManager.h"
 #include "DataSystem.h"
 #include "NetworkSystem.h"
-#include "DebugInputHandler.h"
 
 class ServerApp
 {
@@ -15,7 +14,6 @@ public:
 	sptr<GameSystem> gameSystem;
 	sptr<DataSystem> dataSystem;
 	sptr<NetworkSystem> networkSystem;
-	sptr<DebugInputHandler> debugInputHandler;
 
 public:
 	ServerApp();

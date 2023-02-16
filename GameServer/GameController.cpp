@@ -5,10 +5,11 @@
 #include "spdlog/spdlog.h"
 #include "PacketId_MT_GM.h"
 #include "IController.h"
+#include "PacketId_CL_GM.h"
 
 GameController::GameController(sptr<GameSystem> paramGameSystem) : gameSystem(paramGameSystem)
 {
-	//AddProxyHandler((int)PacketId_CL_GM::Game::HOST_CREATE_REQ, TO_LAMBDA_FOR_PROXY(HandleHostCreate));
+	AddPlayerHandler((int)PacketId_CL_GM::InGame::BUY_CHAMP, LAMBDAFY_PLAYER_PACKET_HANDLER(HandleExample));
 };
 
-void GameController::HandleExample(sptr<Proxy>& session, BYTE* buffer, int32 len) {}
+void GameController::HandleExample(sptr<ClientSession>& session, sptr<Player>& player, sptr<GameHost>& gameHost, BYTE* buffer, int32 len) {}

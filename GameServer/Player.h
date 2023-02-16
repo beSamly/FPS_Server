@@ -1,16 +1,18 @@
 #pragma once
-
-class GameHost;
+#include "ClientSession.h"
+#include "Champion.h"
 
 class Player
 {
 private:
-	wptr<GameHost> currentGame;
 	int playerId;
+	wptr<ClientSession> client;
+	uptr<Champion> champion;
+
 public:
+	Player(int playerId);
 	int GetPlayerId() { return playerId; }
-	void SetPlayerId(int id) { playerId = id; }
+	void SetClientSession(wptr<ClientSession> p_clinet) { client = p_clinet; }
+	void SendToClient();
 	// Player(){};
-	void SetCurrentGameHost(wptr<GameHost> gameHost) { currentGame = gameHost; }
-	wptr<GameHost> GetCurrentGameHost() { return currentGame; }
 };

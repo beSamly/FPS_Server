@@ -16,7 +16,7 @@ ServerApp::ServerApp()
 	dataSystem = make_shared<DataSystem>();
 	gameSystem = make_shared<GameSystem>(dataSystem);
 	networkSystem = make_shared<NetworkSystem>(dataSystem, gameSystem);
-	debugInputHandler = make_shared<DebugInputHandler>(gameSystem);
+	//debugInputHandler = make_shared<DebugInputHandler>(gameSystem);
 }
 
 void ServerApp::StartSocketServer()
@@ -54,9 +54,9 @@ void ServerApp::StartGameSystem()
 		while (true)
 		{
 			int keyPressed;
-			debugInputHandler->PrintInstruction();
+			//debugInputHandler->PrintInstruction();
 			std::cin >> keyPressed;
-			debugInputHandler->HandleInput(keyPressed);
+			//debugInputHandler->HandleInput(keyPressed);
 			//GInputHandler->HandleInput(socketClient, keyPressed);
 			cout << "Key pressed is " << keyPressed << endl;
 		}

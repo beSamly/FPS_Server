@@ -10,13 +10,7 @@ class Champion
 public:
 	Champion() {};
 
-private:
-	int star;
-	int uid;
-
 public:
-	int GetUid() { return uid; }
-	int GetStar() { return star; }
 	void Update(float deltaTime); // Champion 클래스에서 update하기엔 맵데이터도 다른 champ데이터도 없다..
 
 public:

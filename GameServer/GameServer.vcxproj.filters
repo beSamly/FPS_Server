@@ -27,9 +27,6 @@
     <Filter Include="Source Files\GameSystem\GameState">
       <UniqueIdentifier>{92acc77c-d35a-4ccd-a34b-def8ffa5fa81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameSystem\InGame">
-      <UniqueIdentifier>{6f5909ea-b943-48d8-8e8d-f8ef071e1860}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameSystem\Controller">
       <UniqueIdentifier>{4a3f8f2a-158e-4fab-be79-66f73ed48b4d}</UniqueIdentifier>
     </Filter>
@@ -121,9 +118,6 @@
     </ClInclude>
     <ClInclude Include="IGameState.h">
       <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClInclude>
-    <ClInclude Include="InGamePlayer.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
     </ClInclude>
     <ClInclude Include="OperationController.h">
       <Filter>Source Files\GameSystem\Controller</Filter>
@@ -235,9 +229,6 @@
     </ClCompile>
     <ClCompile Include="IGameState.cpp">
       <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="InGamePlayer.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
     </ClCompile>
     <ClCompile Include="OperationController.cpp">
       <Filter>Source Files\GameSystem\Controller</Filter>

@@ -10,8 +10,8 @@
 
 DebugController::DebugController(sptr<GameSystem> paramGameSystem) : gameSystem(paramGameSystem)
 {
-	AddClientHandler((int)PacketId_CL_GM::Debug::HOST_CREATE_REQ, TO_LAMBDA(HandleHostCreateReq));
-	AddClientHandler((int)PacketId_CL_GM::Debug::GAME_START_REQ, TO_LAMBDA(HandleGameStartReq));
+	AddClientHandler((int)PacketId_CL_GM::Debug::HOST_CREATE_REQ, LAMBDAFY_CLIENT_PACKET_HANDLER(HandleHostCreateReq));
+	AddClientHandler((int)PacketId_CL_GM::Debug::GAME_START_REQ, LAMBDAFY_CLIENT_PACKET_HANDLER(HandleGameStartReq));
 };
 
 void DebugController::HandleHostCreateReq(sptr<ClientSession>& session, BYTE* buffer, int32 len)
@@ -33,12 +33,12 @@ void DebugController::HandleHostCreateReq(sptr<ClientSession>& session, BYTE* bu
 
 void DebugController::HandleGameStartReq(sptr<ClientSession>& session, BYTE* buffer, int32 len)
 {
-	if (sptr<GameHost> gameHost = session->GetPlayer()->GetCurrentGameHost().lock())
-	{
-		//gameHost->SetStarted();
-	}
-	else
-	{
-		spdlog::error("[DebugController] GameHost is deleted for player {}", session->GetPlayer()->GetPlayerId());
-	}
+	//if (sptr<GameHost> gameHost = session->GetPlayer()->GetCurrentGameHost().lock())
+	//{
+	//	//gameHost->SetStarted();
+	//}
+	//else
+	//{
+	//	spdlog::error("[DebugController] GameHost is deleted for player {}", session->GetPlayer()->GetPlayerId());
+	//}
 }

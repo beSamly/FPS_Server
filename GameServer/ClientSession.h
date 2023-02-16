@@ -1,25 +1,22 @@
 #pragma once
 #include "pch.h"
 #include "AsioSession.h"
-#include "Player.h"
 #include <asio/io_context.hpp>
 
 /*-----------------
-                ClientSession
+				ClientSession
 ------------------*/
 
 class ClientSession : public AsioSession
 {
-public:
-    ClientSession(sptr<asio::io_context> context);
-    virtual ~ClientSession();
-
 private:
-    sptr<Player> player;
+	int playerId;
+public:
+	ClientSession(sptr<asio::io_context> context);
+	virtual ~ClientSession();
+	void SetPlayerId(int id) { playerId = id; }
 
 public:
-    bool isAuthenticated = false;
-    int tempClientId = 0;
-    sptr<Player> GetPlayer();
-    void SetPlayer(sptr<Player> player);
+	bool isAuthenticated = false;
+	int tempClientId = 0;
 };

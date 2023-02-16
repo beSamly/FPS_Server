@@ -10,7 +10,7 @@
 
 HostController::HostController(sptr<GameSystem> p_gameSystem) : gameSystem(p_gameSystem)
 {
-    AddProxyHandler((int)PacketId_MT_GM::Host::HOST_CREATE_REQ, TO_LAMBDA_FOR_PROXY(HandleHostCreate));
+    AddProxyHandler((int)PacketId_MT_GM::Host::HOST_CREATE_REQ, LAMBDAFY_PROXY_PACKET_HANDLER(HandleHostCreate));
 };
 
 void HostController::HandleHostCreate(sptr<Proxy>& session, BYTE* buffer, int32 len)
