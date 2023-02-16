@@ -5,7 +5,6 @@
 #include "spdlog/spdlog.h"
 #include "Player.h"
 
-
 /*
 테스트 방법 메모
 호스트 생성 먼저 - HostCreate
@@ -14,7 +13,6 @@
 필드에 배치 - ChampLocateToField
 (Optional) 벤치, 필드 정보 확인- ShowBencnAndFieldData
 게임 시작 - StartRound
-
 */
 
 namespace {
@@ -53,13 +51,6 @@ public:
 	DebugInputHandler(sptr<GameSystem> paramGameSystem) : gameSystem(paramGameSystem) {
 		handlers.emplace(1, TO_LAMBDA(HandleHostCreate));
 		handlers.emplace(2, TO_LAMBDA(HandleEnterClient));
-		handlers.emplace(3, TO_LAMBDA(HandleShowShopData));
-		handlers.emplace(4, TO_LAMBDA(HandleBuyChamp));
-		handlers.emplace(5, TO_LAMBDA(HandleChampLocateToField));
-		handlers.emplace(6, TO_LAMBDA(HandleChampLocateToBench));
-		handlers.emplace(7, TO_LAMBDA(HandleShowBencnAndFieldData));
-		handlers.emplace(8, TO_LAMBDA(HandleStartRound));
-		handlers.emplace(9, TO_LAMBDA(HandleStopRound));
 	}
 
 	void PrintInstruction() {
@@ -108,111 +99,4 @@ public:
 		host->EnterClient(clientSession2);
 	}
 
-	void HandleBuyChamp() {
-
-		cout << "[BuyChamp] for which player" << endl;
-		int playerId;
-		std::cin >> playerId;
-
-		cout << "[BuyChamp] Champ uid to buy" << endl;
-		int champUid;
-		std::cin >> champUid;
-
-		sptr<GameHost> gameHost = GetGameHost();
-		sptr<ClientSession> targetClient = playerId == 1 ? clientSession1 : clientSession2;
-		sptr<N2G::BuyChampCommand> command = make_shared<N2G::BuyChampCommand>(targetClient, champUid);
-		gameHost->PushCommand(command);
-	}
-
-	void HandleChampLocateToBench() {
-		cout << "[ChampLocateToBench] for which player" << endl;
-		int playerId;
-		std::cin >> playerId;
-
-		cout << "[ChampLocateToBench] Champ index to locate" << endl;
-		int champUid;
-		std::cin >> champUid;
-
-		cout << "[ChampLocateToBench] bench index to locate" << endl;
-		int benchIndex;
-		std::cin >> benchIndex;
-
-		sptr<ClientSession> targetClient = playerId == 1 ? clientSession1 : clientSession2;
-		sptr<N2G::LocateChampCommand> command = make_shared<N2G::LocateChampCommand>(targetClient, N2G::LOCATION_TYPE::FIELD, N2G::LOCATION_TYPE::BENCH, benchIndex, champUid);
-
-		sptr<GameHost> gameHost = GetGameHost();
-		gameHost->PushCommand(command);
-	}
-
-	void HandleChampLocateToField() {
-		cout << "[ChampLocateToField] for which player" << endl;
-		int playerId;
-		std::cin >> playerId;
-
-		cout << "[ChampLocateToField] Champ index to locate" << endl;
-		int champUid;
-		std::cin >> champUid;
-
-		cout << "[ChampLocateToField] field index to locate" << endl;
-		int fieldIndex;
-		std::cin >> fieldIndex;
-
-		sptr<ClientSession> targetClient = playerId == 1 ? clientSession1 : clientSession2;
-		sptr<N2G::LocateChampCommand> command = make_shared<N2G::LocateChampCommand>(targetClient, N2G::LOCATION_TYPE::BENCH, N2G::LOCATION_TYPE::FIELD, fieldIndex, champUid);
-
-		sptr<GameHost> gameHost = GetGameHost();
-		gameHost->PushCommand(command);
-	}
-
-	void HandleStartRound() {
-		sptr<GameHost> gameHost = GetGameHost();
-		gameHost->Start();
-	}
-
-	void HandleStopRound()
-	{
-		sptr<GameHost> gameHost = GetGameHost();
-
-		// 생성된 전투 매치 모두 삭제
-		gameHost->SetCurrentState(nullptr);
-		gameHost->GetMatchPool().Reset();
-	}
-
-	void HandleShowBencnAndFieldData() {
-		sptr<GameHost> gameHost = GetGameHost();
-
-		for (auto& [playerId, inGamePlayer] : gameHost->GetInGamePlayer())
-		{
-			spdlog::debug("========PlayerId {}==========", playerId);
-			Bench bench = inGamePlayer->GetBench();
-			for (auto& [benchIndex, champion] : bench.GetBenchData())
-			{
-				spdlog::debug("Bench Index {} Champion Uid = {}", benchIndex, champion->GetUid());
-			}
-
-			Field field = inGamePlayer->GetField();
-			for (auto& [fieldIndex, champion] : field.GetFieldData())
-			{
-				spdlog::debug("Bench Index {} Champion Uid = {}", fieldIndex, champion->GetUid());
-			}
-
-			spdlog::debug("============End==============");
-		}
-	}
-
-	void HandleShowShopData() {
-		sptr<GameHost> gameHost = GetGameHost();
-
-		for (auto& [playerId, inGamePlayer] : gameHost->GetInGamePlayer())
-		{
-			spdlog::debug("========PlayerId {}==========", playerId);
-			ChampShop shop = inGamePlayer->GetChampShop();
-			for (auto& [champUid, champData] : shop.GetChampData())
-			{
-				spdlog::debug("Champ Uid {} Champion Uid = {}", champUid, champData.displayName);
-			}
-
-			spdlog::debug("============End==============");
-		}
-	}
 };

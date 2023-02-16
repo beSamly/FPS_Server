@@ -30,9 +30,6 @@
     <Filter Include="Source Files\GameSystem\InGame">
       <UniqueIdentifier>{6f5909ea-b943-48d8-8e8d-f8ef071e1860}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameSystem\InGameEvent">
-      <UniqueIdentifier>{c5d8fe8a-a1e3-490a-ac6c-ea902a37fab5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameSystem\Controller">
       <UniqueIdentifier>{4a3f8f2a-158e-4fab-be79-66f73ed48b4d}</UniqueIdentifier>
     </Filter>
@@ -125,50 +122,8 @@
     <ClInclude Include="IGameState.h">
       <Filter>Source Files\GameSystem\GameState</Filter>
     </ClInclude>
-    <ClInclude Include="RoundStartedState.h">
-      <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClInclude>
-    <ClInclude Include="StandByState.h">
-      <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClInclude>
-    <ClInclude Include="InGameEventHandler.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="InGameMatch.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="InGameMatchPool.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
     <ClInclude Include="InGamePlayer.h">
       <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="MatchHistory.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="ShopProbability.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="TargetFindUtil.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Bench.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Champion.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="ChampShop.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Field.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="FieldMap.h">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClInclude>
-    <ClInclude Include="IInGameEvent.h">
-      <Filter>Source Files\GameSystem\InGameEvent</Filter>
     </ClInclude>
     <ClInclude Include="OperationController.h">
       <Filter>Source Files\GameSystem\Controller</Filter>
@@ -245,15 +200,6 @@
     <ClInclude Include="DebugInputHandler.h">
       <Filter>Source Files\GameSystem\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="PreRoundStartState.h">
-      <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClInclude>
-    <ClInclude Include="PreStandByState.h">
-      <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClInclude>
-    <ClInclude Include="RoundEndedState.h">
-      <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -292,47 +238,8 @@
     <ClCompile Include="IGameState.cpp">
       <Filter>Source Files\GameSystem\GameState</Filter>
     </ClCompile>
-    <ClCompile Include="RoundStartedState.cpp">
-      <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="StandByState.cpp">
-      <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="InGameEventHandler.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="InGameMatch.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="InGameMatchPool.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
     <ClCompile Include="InGamePlayer.cpp">
       <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="MatchHistory.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="ShopProbability.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Bench.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Champion.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="ChampShop.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Field.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="FieldMap.cpp">
-      <Filter>Source Files\GameSystem\InGame</Filter>
-    </ClCompile>
-    <ClCompile Include="IInGameEvent.cpp">
-      <Filter>Source Files\GameSystem\InGameEvent</Filter>
     </ClCompile>
     <ClCompile Include="OperationController.cpp">
       <Filter>Source Files\GameSystem\Controller</Filter>
@@ -405,15 +312,6 @@
     </ClCompile>
     <ClCompile Include="DebugController.cpp">
       <Filter>Source Files\NetworkSystem\PacketController\Player\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="PreRoundStartState.cpp">
-      <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="PreStandByState.cpp">
-      <Filter>Source Files\GameSystem\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="RoundEndedState.cpp">
-      <Filter>Source Files\GameSystem\GameState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

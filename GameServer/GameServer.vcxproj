@@ -133,11 +133,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AuthController.h" />
-    <ClInclude Include="Bench.h" />
     <ClInclude Include="ChampDataFactory.h" />
     <ClInclude Include="Champion.h" />
     <ClInclude Include="ChampRelatedStruct.h" />
-    <ClInclude Include="ChampShop.h" />
     <ClInclude Include="ClientPacketController.h" />
     <ClInclude Include="ClientSession.h" />
     <ClInclude Include="Command.h" />
@@ -145,8 +143,6 @@
     <ClInclude Include="DebugInputHandler.h" />
     <ClInclude Include="GameHostCommandHandler.h" />
     <ClInclude Include="DataSystem.h" />
-    <ClInclude Include="Field.h" />
-    <ClInclude Include="FieldMap.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameHost.h" />
     <ClInclude Include="GameStartedState.h" />
@@ -154,15 +150,10 @@
     <ClInclude Include="HostController.h" />
     <ClInclude Include="IController.h" />
     <ClInclude Include="IGameState.h" />
-    <ClInclude Include="IInGameEvent.h" />
-    <ClInclude Include="InGameEventHandler.h" />
-    <ClInclude Include="InGameMatch.h" />
-    <ClInclude Include="InGameMatchPool.h" />
     <ClInclude Include="InGamePlayer.h" />
     <ClInclude Include="IOperation.h" />
     <ClInclude Include="IPacketController.h" />
     <ClInclude Include="LibraryHeader.h" />
-    <ClInclude Include="MatchHistory.h" />
     <ClInclude Include="MatchServerPacketController.h" />
     <ClInclude Include="NetworkSystem.h" />
     <ClInclude Include="OperationController.h" />
@@ -171,19 +162,12 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="PlayerPacketController.h" />
-    <ClInclude Include="PreRoundStartState.h" />
-    <ClInclude Include="PreStandByState.h" />
-    <ClInclude Include="RoundEndedState.h" />
-    <ClInclude Include="RoundStartedState.h" />
     <ClInclude Include="ServerApp.h" />
-    <ClInclude Include="ShopProbability.h" />
     <ClInclude Include="SkillController.h" />
     <ClInclude Include="SocketServer.h" />
-    <ClInclude Include="StandByState.h" />
     <ClInclude Include="StatController.h" />
     <ClInclude Include="StateController.h" />
     <ClInclude Include="StatModifier.h" />
-    <ClInclude Include="TargetFindUtil.h" />
     <ClInclude Include="TempClientManager.h" />
     <ClInclude Include="ThreadSystem.h" />
     <ClInclude Include="TLS.h" />
@@ -192,18 +176,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AuthController.cpp" />
-    <ClCompile Include="Bench.cpp" />
     <ClCompile Include="ChampDataFactory.cpp" />
     <ClCompile Include="Champion.cpp" />
-    <ClCompile Include="ChampShop.cpp" />
     <ClCompile Include="ClientPacketController.cpp" />
     <ClCompile Include="ClientSession.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DebugController.cpp" />
     <ClCompile Include="GameHostCommandHandler.cpp" />
     <ClCompile Include="DataSystem.cpp" />
-    <ClCompile Include="Field.cpp" />
-    <ClCompile Include="FieldMap.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameHost.cpp" />
     <ClCompile Include="GameStartedState.cpp" />
@@ -211,15 +191,10 @@
     <ClCompile Include="HostController.cpp" />
     <ClCompile Include="IController.cpp" />
     <ClCompile Include="IGameState.cpp" />
-    <ClCompile Include="IInGameEvent.cpp" />
-    <ClCompile Include="InGameEventHandler.cpp" />
-    <ClCompile Include="InGameMatch.cpp" />
-    <ClCompile Include="InGameMatchPool.cpp" />
     <ClCompile Include="InGamePlayer.cpp" />
     <ClCompile Include="IOperation.cpp" />
     <ClCompile Include="IPacketController.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MatchHistory.cpp" />
     <ClCompile Include="MatchServerPacketController.cpp" />
     <ClCompile Include="NetworkSystem.cpp" />
     <ClCompile Include="OperationController.cpp" />
@@ -227,15 +202,9 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="PlayerPacketController.cpp" />
-    <ClCompile Include="PreRoundStartState.cpp" />
-    <ClCompile Include="PreStandByState.cpp" />
-    <ClCompile Include="RoundEndedState.cpp" />
-    <ClCompile Include="RoundStartedState.cpp" />
     <ClCompile Include="ServerApp.cpp" />
-    <ClCompile Include="ShopProbability.cpp" />
     <ClCompile Include="SkillController.cpp" />
     <ClCompile Include="SocketServer.cpp" />
-    <ClCompile Include="StandByState.cpp" />
     <ClCompile Include="StatController.cpp" />
     <ClCompile Include="StateController.cpp" />
     <ClCompile Include="StatModifier.cpp" />

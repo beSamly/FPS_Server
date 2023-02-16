@@ -15,8 +15,5 @@ public:
 	GameHostCommandHandler();
 	void ProcessCommand(GameHost& host, sptr<ICommand> command);
 private:
-	void HandleChampBuyCommand(GameHost& host, sptr<ICommand> command);
-	void HandleChampSellCommand(GameHost& host, sptr<ICommand> command);
-	void HandleChampLocateCommand(GameHost& host, sptr<ICommand> command);
 	void HandleHostCreateCommand(GameHost& host, sptr<ICommand> command);
 };

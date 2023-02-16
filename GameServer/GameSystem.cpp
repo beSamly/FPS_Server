@@ -124,8 +124,8 @@ void GameSystem::HandleHostCreate(sptr<ICommand> command)
 	sptr<GameHost> host = make_shared<GameHost>(dataSystem->champDataFactory, matchId, vecPlayerId);
 
 	// 챔피언 풀 생성
-	vector<ChampData> champData = dataSystem->champDataFactory->GetChampPoolData();
-	host->InitChampPool(champData);
+	/*vector<ChampData> champData = dataSystem->champDataFactory->GetChampPoolData();
+	host->InitChampPool(champData);*/
 
 	// 호스트 및 유저 정보 저장
 	gameHostMap.emplace(matchId, host);
