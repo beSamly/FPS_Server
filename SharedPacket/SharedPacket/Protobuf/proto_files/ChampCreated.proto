@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package Protocol;
 
-import "ChampStat.proto";
+import "Vector3.proto";
 
 message ChampionCreatedEvent {
   int32 championUid = 1;
-  ChampStat stat = 2;
+  Vector3 position = 2;
 }

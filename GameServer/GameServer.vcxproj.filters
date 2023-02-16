@@ -140,9 +140,6 @@
     <ClInclude Include="TransformController.h">
       <Filter>Source Files\GameSystem\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="Vector3.h">
-      <Filter>Source Files\GameSystem\Common</Filter>
-    </ClInclude>
     <ClInclude Include="StatModifier.h">
       <Filter>Source Files\GameSystem\Modifier</Filter>
     </ClInclude>
@@ -200,6 +197,7 @@
     <ClInclude Include="DebugInputHandler.h">
       <Filter>Source Files\GameSystem\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="Champion.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -256,9 +254,6 @@
     <ClCompile Include="TransformController.cpp">
       <Filter>Source Files\GameSystem\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="Vector3.cpp">
-      <Filter>Source Files\GameSystem\Common</Filter>
-    </ClCompile>
     <ClCompile Include="StatModifier.cpp">
       <Filter>Source Files\GameSystem\Modifier</Filter>
     </ClCompile>
@@ -312,6 +307,9 @@
     </ClCompile>
     <ClCompile Include="DebugController.cpp">
       <Filter>Source Files\NetworkSystem\PacketController\Player\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Champion.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
