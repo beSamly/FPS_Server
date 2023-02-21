@@ -78,7 +78,7 @@ public:
 		vecPlayerId.push_back(2);
 
 		// 게임 시스템에 요청
-		sptr<N2G::HostCreateCommand> command = make_shared<N2G::HostCreateCommand>(99999, vecPlayerId, proxySession);
+		sptr<HostCreateCommand> command = make_shared<HostCreateCommand>(99999, vecPlayerId, proxySession);
 		gameSystem->PushCommand(command);
 	}
 

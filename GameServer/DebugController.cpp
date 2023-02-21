@@ -27,7 +27,7 @@ void DebugController::HandleHostCreateReq(sptr<ClientSession>& session, BYTE* bu
 	}
 
 	// 게임 시스템에 요청
-	//sptr<N2G::HostCreateCommand> command = make_shared<N2G::HostCreateCommand>(req.matchid(), vecPlayerId, session);
+	//sptr<HostCreateCommand> command = make_shared<HostCreateCommand>(req.matchid(), vecPlayerId, session);
 	//gameSystem->PushCommand(command);
 }
 

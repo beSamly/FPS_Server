@@ -12,8 +12,8 @@ namespace
 #define SET_CURRENT_STATE_TO_LAMBDA(FUNC) [&](sptr<IGameState> newState) { FUNC(newState); }
 } // namespace
 
-GameHost::GameHost(sptr<ChampDataFactory> paramChampDataFactory, int paramMatchId, vector<int> paramVecPlayerId)
-	: champDataFactory(paramChampDataFactory), matchId(paramMatchId), vecPlayerId(paramVecPlayerId)
+GameHost::GameHost(int paramMatchId, vector<int> paramVecPlayerId)
+	: matchId(paramMatchId), vecPlayerId(paramVecPlayerId)
 {
 }
 

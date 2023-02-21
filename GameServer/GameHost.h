@@ -37,7 +37,7 @@ public:
 	void SetCurrentState(sptr<IGameState> state) { currentState = state; }
 
 public:
-	GameHost(sptr<ChampDataFactory> p_champDataFactory, int matchId, vector<int> paramVecPlayerId);
+	GameHost(int matchId, vector<int> paramVecPlayerId);
 	void Start();
 	bool EnterPlayer(sptr<Player> client);
 	void PushCommand(sptr<ICommand> command);

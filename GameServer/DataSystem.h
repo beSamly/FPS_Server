@@ -1,15 +1,20 @@
 #pragma once
 #include "TempClientManager.h"
 #include "ChampDataFactory.h"
+#include "NavmeshDataManager.h"
 
 class DataSystem
 {
-public:
-    sptr<TempClientManager> tempClientManager;
-    sptr<ChampDataFactory> champDataFactory;
+private:
+	sptr<TempClientManager> tempClientManager;
+	sptr<ChampDataFactory> champDataFactory;
+	sptr<NavmeshDataManager> navmeshDataManager;
+
+	void LoadJsonData();
 
 public:
-    DataSystem();
+	DataSystem();
 
-    sptr<TempClientManager> GetTempClientManager() { return tempClientManager; }
+	sptr<TempClientManager> GetTempClientManager() { return tempClientManager; }
+	sptr<NavmeshDataManager> GetNavmeshDataManager() { return navmeshDataManager; }
 };

@@ -7,96 +7,10 @@ using json = nlohmann::json;
 
 void ChampDataFactory::LoadJsonData()
 {
-	LoadChampData();
-	LoadChampStatData();
-	LoadSkillData();
-	LoadChampSkillData();
+	LoadExample();
 }
 
-vector<ChampData> ChampDataFactory::GetChampPoolData() { return champDataVec; }
-
-ChampStatData ChampDataFactory::GetStatData(int champIndex, int star)
-{
-	if (champStatDataMap.find(champIndex) != champStatDataMap.end())
-	{
-		vector<ChampStatData>& vec = champStatDataMap[champIndex];
-
-		for (ChampStatData& data : vec)
-		{
-			if (data.star == star)
-			{
-				return data;
-			}
-		}
-	}
-}
-
-ChampSkillData ChampDataFactory::GetChampSkillData(int champIndex)
-{
-	if (champSkillDataMap.find(champIndex) != champSkillDataMap.end())
-	{
-		return champSkillDataMap[champIndex];
-	}
-}
-
-SkillData ChampDataFactory::GetSkillData(int skillIndex)
-{
-	if (skillDataMap.find(skillIndex) != skillDataMap.end())
-	{
-		return skillDataMap[skillIndex];
-	}
-}
-
-void ChampDataFactory::LoadChampData()
-{
-	std::ifstream f("./json/ChampData.json");
-
-	json vectorData = json::parse(f);
-	for (auto& d : vectorData)
-	{
-		ChampData temp;
-		temp.index = d["Index"];
-		temp.displayName = d["DisplayName"];
-		temp.cost = d["Cost"];
-		temp.amount = d["Amount"];
-
-		champDataVec.push_back(temp);
-	}
-}
-
-void ChampDataFactory::LoadChampStatData()
-{
-	std::ifstream f("./json/ChampStatData.json");
-
-	json vectorData = json::parse(f);
-	for (auto& d : vectorData)
-	{
-		int champIndex = d["ChampIndex"];
-		json statList = d["StatList"];
-
-		vector<ChampStatData> vec;
-
-		for (auto& stat : statList)
-		{
-			ChampStatData temp;
-
-			// Operation op;
-			temp.star = stat["Star"];
-			temp.attackDamage = stat["AttackDamage"];
-			temp.abilityPower = stat["AbilityPower"];
-			temp.armor = stat["Armor"];
-			temp.magicResistence = stat["MagicResistence"];
-			temp.attackSpeed = stat["AttackSpeed"];
-			temp.moveSpeed = stat["MoveSpeed"];
-
-			vec.push_back(temp);
-		}
-
-		champStatDataMap.emplace(champIndex, vec);
-	}
-}
-
-void ChampDataFactory::LoadSkillData()
+void ChampDataFactory::LoadExample()
 {
 	std::ifstream f("./json/SkillData.json");
 
@@ -135,34 +49,6 @@ void ChampDataFactory::LoadSkillData()
 			data.operations.push_back(temp);
 		}
 
-		skillDataMap.emplace(data.skillIndex, data);
-	}
-}
-
-void ChampDataFactory::LoadChampSkillData()
-{
-	std::ifstream f("./json/ChampSkillData.json");
-
-	json vectorData = json::parse(f);
-	for (auto& data : vectorData)
-	{
-		ChampSkillData temp;
-
-		temp.championIndex = data["ChampIndex"];
-
-		json baseAttackSkillIndex = data["BaseAttackSkillIndex"];
-		json skillIndex = data["SkillIndex"];
-
-		for (int skillIndex : baseAttackSkillIndex)
-		{
-			temp.baseAttackSkillIndex.push_back(skillIndex);
-		}
-
-		for (int skillIndex : skillIndex)
-		{
-			temp.skillIndex.push_back(skillIndex);
-		}
-
-		champSkillDataMap.emplace(temp.championIndex, temp);
+		//skillDataMap.emplace(data.skillIndex, data);
 	}
 }

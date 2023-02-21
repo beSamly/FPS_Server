@@ -152,8 +152,11 @@
     <ClInclude Include="IGameState.h" />
     <ClInclude Include="IOperation.h" />
     <ClInclude Include="IPacketController.h" />
+    <ClInclude Include="KeyInputDef.h" />
     <ClInclude Include="LibraryHeader.h" />
     <ClInclude Include="MatchServerPacketController.h" />
+    <ClInclude Include="Navmesh.h" />
+    <ClInclude Include="NavmeshDataManager.h" />
     <ClInclude Include="NetworkSystem.h" />
     <ClInclude Include="OperationController.h" />
     <ClInclude Include="pch.h" />
@@ -178,7 +181,6 @@
     <ClCompile Include="Champion.cpp" />
     <ClCompile Include="ClientPacketController.cpp" />
     <ClCompile Include="ClientSession.cpp" />
-    <ClCompile Include="Command.cpp" />
     <ClCompile Include="DebugController.cpp" />
     <ClCompile Include="GameHostCommandHandler.cpp" />
     <ClCompile Include="DataSystem.cpp" />
@@ -193,6 +195,8 @@
     <ClCompile Include="IPacketController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MatchServerPacketController.cpp" />
+    <ClCompile Include="Navmesh.cpp" />
+    <ClCompile Include="NavmeshDataManager.cpp" />
     <ClCompile Include="NetworkSystem.cpp" />
     <ClCompile Include="OperationController.cpp" />
     <ClCompile Include="PhysicalDamage.cpp" />

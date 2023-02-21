@@ -15,6 +15,7 @@ public:
 	ClientSession(sptr<asio::io_context> context);
 	virtual ~ClientSession();
 	void SetPlayerId(int id) { playerId = id; }
+	int GetPlayerId() { return playerId; }
 
 public:
 	bool isAuthenticated = false;

@@ -75,6 +75,9 @@
     <Filter Include="Source Files\GameSystem\Debug">
       <UniqueIdentifier>{edd49489-39ec-4129-b966-11e695da3165}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\DataSystem\Object">
+      <UniqueIdentifier>{ae4075af-f0cd-4745-bdd5-f12eafa74b31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -155,9 +158,6 @@
     <ClInclude Include="IOperation.h">
       <Filter>Source Files\GameSystem\Opereation</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Source Files\DataSystem\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="IPacketController.h">
       <Filter>Source Files\NetworkSystem\PacketController\Interface</Filter>
     </ClInclude>
@@ -192,6 +192,18 @@
       <Filter>Source Files\GameSystem\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Champion.h" />
+    <ClInclude Include="KeyInputDef.h">
+      <Filter>Source Files\GameSystem\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="NavmeshDataManager.h">
+      <Filter>Source Files\DataSystem\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\DataSystem\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Navmesh.h">
+      <Filter>Source Files\DataSystem\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -248,9 +260,6 @@
     <ClCompile Include="StatModifier.cpp">
       <Filter>Source Files\GameSystem\Modifier</Filter>
     </ClCompile>
-    <ClCompile Include="Command.cpp">
-      <Filter>Source Files\GameSystem\Command</Filter>
-    </ClCompile>
     <ClCompile Include="GameHostCommandHandler.cpp">
       <Filter>Source Files\GameSystem\Command</Filter>
     </ClCompile>
@@ -265,9 +274,6 @@
     </ClCompile>
     <ClCompile Include="IOperation.cpp">
       <Filter>Source Files\GameSystem\Opereation</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\DataSystem\Manager</Filter>
     </ClCompile>
     <ClCompile Include="IController.cpp">
       <Filter>Source Files\NetworkSystem\PacketController\Interface</Filter>
@@ -301,6 +307,15 @@
     </ClCompile>
     <ClCompile Include="Champion.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NavmeshDataManager.cpp">
+      <Filter>Source Files\DataSystem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\DataSystem\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Navmesh.cpp">
+      <Filter>Source Files\DataSystem\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

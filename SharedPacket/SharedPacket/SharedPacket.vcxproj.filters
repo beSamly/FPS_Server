@@ -49,6 +49,9 @@
       <Filter>Protobuf</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Protobuf\MoveRequest.pb.cc">
+      <Filter>Protobuf</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PacketId_CL_AG.h">
@@ -109,5 +112,8 @@
       <Filter>Protobuf</Filter>
     </ClInclude>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Protobuf\MoveRequest.pb.h">
+      <Filter>Protobuf</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

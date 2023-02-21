@@ -173,6 +173,7 @@
     <ClCompile Include="Protobuf\MatchCreatedSend.pb.cc" />
     <ClCompile Include="Protobuf\MatchRequest.pb.cc" />
     <ClCompile Include="Protobuf\MatchRequestResponse.pb.cc" />
+    <ClCompile Include="Protobuf\MoveRequest.pb.cc" />
     <ClCompile Include="Protobuf\PlayerInfo.pb.cc" />
     <ClCompile Include="Protobuf\PositionUpdated.pb.cc" />
     <ClCompile Include="Protobuf\ProxyLoginReq.pb.cc" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Protobuf\MatchCreatedSend.pb.h" />
     <ClInclude Include="Protobuf\MatchRequest.pb.h" />
     <ClInclude Include="Protobuf\MatchRequestResponse.pb.h" />
+    <ClInclude Include="Protobuf\MoveRequest.pb.h" />
     <ClInclude Include="Protobuf\PlayerInfo.pb.h" />
     <ClInclude Include="Protobuf\PositionUpdated.pb.h" />
     <ClInclude Include="Protobuf\ProxyLoginReq.pb.h" />

@@ -16,11 +16,9 @@ namespace
 #define LAMBDAFY_CLIENT_PACKET_HANDLER(FUNC) [&](sptr<ICommand> command) { FUNC(command); }
 } // namespace
 
-using namespace Command::N2G;
-
 GameSystem::GameSystem(sptr<DataSystem> p_dataSystem) : dataSystem(p_dataSystem)
 {
-	commandHandler.emplace((int)N2G::CommandId::CREATE_HOST, LAMBDAFY_CLIENT_PACKET_HANDLER(HandleHostCreate));
+	commandHandler.emplace((int)CommandId::CREATE_HOST, LAMBDAFY_CLIENT_PACKET_HANDLER(HandleHostCreate));
 }
 
 void GameSystem::Run()
@@ -121,7 +119,7 @@ void GameSystem::HandleHostCreate(sptr<ICommand> command)
 	vector<int>& vecPlayerId = hostCreateCommand->vecPlayerId;
 
 	// 호스트 생성
-	sptr<GameHost> host = make_shared<GameHost>(dataSystem->champDataFactory, matchId, vecPlayerId);
+	sptr<GameHost> host = make_shared<GameHost>(matchId, vecPlayerId);
 
 	// 챔피언 풀 생성
 	/*vector<ChampData> champData = dataSystem->champDataFactory->GetChampPoolData();
